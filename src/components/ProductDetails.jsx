@@ -2,19 +2,63 @@ import React from 'react'
 import Banner from '../components/Banner'
 import { RiShareLine } from "react-icons/ri";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
-
+import { useParams } from 'react-router-dom';
+import products from '../assets/assets'; // Adjust path accordingly
 
 const ProductDetails = () => {
+  const { id } = useParams() 
+  const allProducts = [...products.cars, ...products.motorbikes, ...products.phones, ...products.rentalHouses];
+  
+  console.log(typeof allProducts,'founded')
+  const product = allProducts.find(product => product.id === parseInt(id));
+
+  if (!product) {
+    return <div>Product not found</div>;
+  }
+
+
   return (
-    <div className='bg-gray-100'>
+    <div className='bg-gray-200'>
         <Banner />
         <div className=" flex mx-10">
       
-      <div className="min-w-70 bg-gray-100 rounded">
-        <img src="/banner copy.png" alt="Example 1" className="mb-4 h-[40%] w-screen rounded" />
+      <div className="w-fit  bg-gray-200 rounded">
+        <img src={product.image} alt="Example 1" className="mb-4  w-screen rounded" />
       
       
       
+      
+      
+      </div>
+
+      {/* Right Side: Details */}
+      <div className="w-1/2 bg-gray-200 pl-4  ">
+        <div className='bg-white rounded p-4 relative border-2 '>
+        <div className='flex justify-between '>
+        <h1 className="text-2xl font-bold mb-4 pr-[25%]">₹ {product.price}/-</h1> <RiShareLine size={40} className='mr-2 p-2 rounded-full hover:bg-cyan-100 '/>
+        <FaRegHeart size={40}  className='mr-2 p-2' />
+        </div>
+        <h4 className="mb-4 text-gray-400">
+        {product.title}
+        </h4>
+        <div className='flex justify-between text-xs text-gray-400 '>
+            <p>{product.specs}</p>
+            
+        </div>
+        <div className=' rounded  mt-4 border-2 border-black text-black text-center p-4 items-center'>
+                <button ><b>Chat with Seller</b></button>
+            </div>
+        </div>
+        <div className='bg-white rounded mt-4 p-4 relative border-2 '>
+            <h1><b>Posted in</b></h1>
+            <div className='flex justify-between text-xs text-gray-400 '>
+            <p>{product.place}</p>
+            <p>{product.daysUploaded}</p>
+            
+        </div>
+        
+        </div>
+        
       <div className='bg-white rounded border-2 '>
         <h1 className='p-4 text-xl'><b>Description</b></h1>
         
@@ -86,36 +130,6 @@ Tyre Condition: New
       </div>
     </div>
       </div>
-      
-      
-      </div>
-
-      {/* Right Side: Details */}
-      <div className="w-1/2 bg-gray-100 pl-4  ">
-        <div className='bg-white rounded p-4 relative border-2 '>
-        <div className='flex justify-between '>
-        <h1 className="text-2xl font-bold mb-4 pr-[25%]">₹ 10,10,999/-</h1> <RiShareLine size={40} className='mr-2 p-2 rounded-full hover:bg-cyan-100 '/>
-        <FaRegHeart size={40}  className='mr-2 p-2' />
-        </div>
-        <h4 className="mb-4 text-gray-400">
-        Iphone 13 mini
-        </h4>
-        <div className='flex justify-between text-xs text-gray-400 '>
-            <p>Storage: 256GB, Color: Almond, Condition: Used</p>
-            
-        </div>
-        <div className=' rounded  mt-4 border-2 border-black text-black text-center p-4 items-center'>
-                <button ><b>Chat with Seller</b></button>
-            </div>
-        </div>
-        <div className='bg-white rounded mt-4 p-4 relative border-2 '>
-            <h1><b>Posted in</b></h1>
-            <div className='flex justify-between text-xs text-gray-400 '>
-            <p>Place</p>
-            <p>Yesterdy</p>
-            
-        </div>
-        </div>
       </div>
     </div>
     </div>

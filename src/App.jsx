@@ -8,7 +8,7 @@ import { AuthContextProvider } from './context/AuthContext'
 import ProtectedRouter from './components/ProtectedRouter'
 import OptionItem from './components/OptionItem'
 import Profile from './pages/Profile'
-import ProductDetails from './pages/ProductDetails'
+import ProductDetails from './components/ProductDetails'
 import BannerApp from './components/BannerApp'
 import FooterAboutus from './components/FooterAboutus'
 import Footer from './components/Footer'
@@ -28,7 +28,7 @@ const App = () => {
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
             <Route path='/productId' element={<ProductDetails />} />
-            
+            <Route path="/product/:id" element={<ProductDetails />} />
           </Routes>
         </Suspense>
       </AuthContextProvider>
