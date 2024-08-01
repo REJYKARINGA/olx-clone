@@ -6,32 +6,39 @@ import behind from '../assets/login,sign.png';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [emailValid, setEmailValid] = useState(true);
-  const [passwordValid, setPasswordValid] = useState(true);
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
   const [rememberLogin, setRememberLogin] = useState(false);
-  
+
   const { logIn } = UserAuth();
   const navigate = useNavigate();
 
-  const validation = (fieldName, value) => {
-    switch (fieldName) {
-      case 'email':
-        return value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-      case 'password':
-        return value.length >= 6;
-      default:
-        return false;
-    }
+  const validateEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
   };
 
-  const handleForSubmit = async (e) => {
+  const validatePassword = (password) => {
+    return password.length >= 6;
+  };
+
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    const isEmailValid = validation('email', email);
-    const isPasswordValid = validation('password', password);
+    // Clear previous errors
+    setEmailError('');
+    setPasswordError('');
 
-    setEmailValid(isEmailValid);
-    setPasswordValid(isPasswordValid);
+    // Validate email and password
+    const isEmailValid = validateEmail(email);
+    const isPasswordValid = validatePassword(password);
+
+    if (!isEmailValid) {
+      setEmailError('Please enter a valid email address');
+    }
+    if (!isPasswordValid) {
+      setPasswordError('Password must be at least 6 characters long');
+    }
 
     if (!isEmailValid || !isPasswordValid) {
       return;
@@ -42,51 +49,52 @@ const Login = () => {
       navigate('/');
     } catch (error) {
       console.error(error);
+      alert('Failed to log in. Please check your credentials and try again.');
     }
   };
 
   return (
     <>
-      <div className="w-full h-screen object-cover ">
+      <div className="w-full h-screen object-cover">
         <img
           className="hidden sm:block absolute w-full h-full object-cover"
           src={behind}
-          alt="///"
+          alt="Background"
         />
 
-        <div className="flex bg-white/70 fixed top-0 left-0 w-full h-screen  " />
+        <div className="flex bg-white/70 fixed top-0 left-0 w-full h-screen" />
 
-        <div className="fixed w-full mt-[11%] ">
+        <div className="fixed w-full mt-[11%]">
           <div className="max-w-[30%] mt-4 mx-auto border-2 border-gray-300 bg-white/100 rounded-lg">
             <div className="max-w-[320px] mx-auto py-12">
               <h1 className="text-3xl font-nsans-bold">Login</h1>
 
               <form
-                onSubmit={handleForSubmit}
+                onSubmit={handleFormSubmit}
                 className="w-full flex flex-col py-4"
               >
                 <input
                   className="p-3 my-2 bg-gray-100 rounded"
                   type="email"
-                  placeholder="email"
+                  placeholder="Email"
                   autoComplete="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
-                {!emailValid && (
-                  <p className="text-red-600"> Email is invalid/blank</p>
+                {emailError && (
+                  <p className="text-red-600">{emailError}</p>
                 )}
 
                 <input
                   className="p-3 my-2 bg-gray-100 rounded"
                   type="password"
-                  placeholder="password"
+                  placeholder="Password"
                   autoComplete="current-password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                {!passwordValid && (
-                  <p className="text-red-600"> Password is invalid/blank</p>
+                {passwordError && (
+                  <p className="text-red-600">{passwordError}</p>
                 )}
 
                 <button className="bg-orange-600 text-white py-3 my-6 rounded font-nsans-bold">
@@ -98,11 +106,11 @@ const Login = () => {
                       type="checkbox"
                       className="mr-2"
                       checked={rememberLogin}
-                      onChange={(e) => setRememberLogin(!rememberLogin)}
+                      onChange={() => setRememberLogin(!rememberLogin)}
                     />
                     Remember me
                   </p>
-                  <p> Need Help?</p>
+                  <p>Need Help?</p>
                 </div>
                 <p className="my-4">
                   <span className="text-gray-600 mr-2">New to OLX?</span>

@@ -59,7 +59,7 @@ try {
         <FaRegBell size={40} className='mr-2 p-2 rounded-full hover:bg-cyan-100 ' />
         <Link to='/logout'>
             <button onClick={handleLogout} className=' hover:no-underline underline pr-4'>
-              <img className='rounded-full w-8 '  src='/public/profile_icon.png'  />
+              <img className='rounded-full w-8 '  src='/profile_icon.png'  />
             </button>
             
         </Link>
