@@ -28,11 +28,7 @@ const App = () => {
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
             <Route path='/productId' element={<ProductDetails />} />
-            <Route path='/profile' element={
-              <ProtectedRouter>
-                <Profile />
-              </ProtectedRouter>
-            } />
+            
           </Routes>
         </Suspense>
       </AuthContextProvider>
