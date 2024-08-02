@@ -89,7 +89,7 @@ const ProductItem = ({ title }) => {
 
 
 </div>
-<div className="mx-[50%]  border-2 border-black rounded w-[9%] p-2 cursor-pointer">
+<div className="mx-[50%]  my-10 border-2 border-black rounded w-[9%] p-2 cursor-pointer">
 <b >Load more</b>
 </div>
 

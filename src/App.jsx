@@ -12,6 +12,7 @@ import ProductDetails from './components/ProductDetails'
 import BannerApp from './components/BannerApp'
 import FooterAboutus from './components/FooterAboutus'
 import Footer from './components/Footer'
+import CategoryPage from './components/CategoryPage'
 // Lazy load the Profile component
 
 const App = () => {
@@ -29,6 +30,8 @@ const App = () => {
             <Route path='/signup' element={<Signup />} />
             <Route path='/productId' element={<ProductDetails />} />
             <Route path="/product/:id" element={<ProductDetails />} />
+
+          <Route path="/:category" element={<CategoryPage />} />
           </Routes>
         </Suspense>
       </AuthContextProvider>

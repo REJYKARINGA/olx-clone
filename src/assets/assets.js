@@ -95,7 +95,7 @@ const products = {
   ],
   motorbikes: [
     {
-      id: 1,
+      id: 8,
       title: "Yamaha R15 V3",
       specs: "Mileage: 15,000 km, Fuel: Petrol, Transmission: Manual",
       price: 1500,
@@ -104,7 +104,7 @@ const products = {
       image: img8
     },
     {
-      id: 2,
+      id: 9,
       title: "Honda CBR 250R",
       specs: "Mileage: 20,000 km, Fuel: Petrol, Transmission: Manual",
       price: 1800,
@@ -113,7 +113,7 @@ const products = {
       image: img9
     },
     {
-      id: 3,
+      id: 10,
       title: "Royal Enfield Classic 350",
       specs: "Mileage: 25,000 km, Fuel: Petrol, Transmission: Manual",
       price: 2000,
@@ -122,7 +122,7 @@ const products = {
       image: img10
     },
     {
-      id: 4,
+      id: 11,
       title: "Bajaj Pulsar NS200",
       specs: "Mileage: 10,000 km, Fuel: Petrol, Transmission: Manual",
       price: 1200,
@@ -133,7 +133,7 @@ const products = {
   ],
   phones: [
     {
-      id: 1,
+      id: 12,
       title: "iPhone X",
       specs: "Storage: 64GB, Color: Space Gray, Condition: Used",
       price: 500,
@@ -142,7 +142,7 @@ const products = {
       image: img12
     },
     {
-      id: 2,
+      id: 13,
       title: "Samsung Galaxy S10",
       specs: "Storage: 128GB, Color: Black, Condition: Used",
       price: 400,
@@ -151,7 +151,7 @@ const products = {
       image: img13
     },
     {
-      id: 3,
+      id: 14,
       title: "OnePlus 7 Pro",
       specs: "Storage: 256GB, Color: Almond, Condition: Used",
       price: 450,
@@ -169,7 +169,7 @@ const products = {
     //   image: img15
     // },
     {
-      id: 5,
+      id: 15,
       title: "Xiaomi Mi 9",
       specs: "Storage: 128GB, Color: Blue, Condition: Used",
       price: 300,
@@ -180,7 +180,7 @@ const products = {
   ],
   rentalHouses: [
     {
-      id: 1,
+      id: 16,
       title: "1BHK for Rent in Pune",
       specs: "Area: 500 sq.ft, Bedrooms: 1, Bathrooms: 1",
       price: 15000,
@@ -189,7 +189,7 @@ const products = {
       image: img17
     },
     {
-      id: 2,
+      id: 17,
       title: "2BHK for Rent in Chennai",
       specs: "Area: 1000 sq.ft, Bedrooms: 2, Bathrooms: 2",
       price: 25000,
@@ -198,7 +198,7 @@ const products = {
       image: img18
     },
     {
-      id: 3,
+      id: 18,
       title: "3BHK for Rent in Kolkata",
       specs: "Area: 1500 sq.ft, Bedrooms: 3, Bathrooms: 2",
       price: 30000,
@@ -207,7 +207,7 @@ const products = {
       image: img19
     },
     {
-      id: 4,
+      id: 19,
       title: "1BHK for Rent in Mumbai",
       specs: "Area: 600 sq.ft, Bedrooms: 1, Bathrooms: 1",
       price: 20000,
