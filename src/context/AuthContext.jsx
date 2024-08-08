@@ -5,7 +5,7 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
-import { auth, db } from "../services/firabase";
+import { auth, db } from "../services/firebase";
 import {doc,setDoc} from 'firebase/firestore'
 
 const AuthContext = createContext();
@@ -20,7 +20,7 @@ export function AuthContextProvider({ children }) {
 
     return () => {
       unsubscribe();
-    };
+    };    
   }, []);
 
   function signUp(email, password) {

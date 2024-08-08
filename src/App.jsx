@@ -8,12 +8,12 @@ import { AuthContextProvider } from './context/AuthContext'
 import ProtectedRouter from './components/ProtectedRouter'
 import OptionItem from './components/OptionItem'
 import Profile from './pages/Profile'
-import ProductDetails from './components/ProductDetails'
+import ProductDetails from './pages/ProductDetails'
 import BannerApp from './components/BannerApp'
 import FooterAboutus from './components/FooterAboutus'
 import Footer from './components/Footer'
 import CategoryPage from './components/CategoryPage'
-// Lazy load the Profile component
+import AddProducts from './pages/AddProducts'
 
 const App = () => {
   return (
@@ -30,8 +30,11 @@ const App = () => {
             <Route path='/signup' element={<Signup />} />
             <Route path='/productId' element={<ProductDetails />} />
             <Route path="/product/:id" element={<ProductDetails />} />
-
+            
           <Route path="/:category" element={<CategoryPage />} />
+
+            <Route path='/sell' element={<AddProducts />} />
+            <Route path="/add-products" element={<PrivateRoute><AddProducts /></PrivateRoute>} />
           </Routes>
         </Suspense>
       </AuthContextProvider>
@@ -42,4 +45,9 @@ const App = () => {
   )
 }
 
+
+function PrivateRoute({ children }) {
+  const { user } = UserAuth();
+  return user ? children : <Navigate to="/login" />;
+}
 export default App

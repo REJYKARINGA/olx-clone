@@ -18,7 +18,7 @@ const OptionItem = () => {
        </div>
 
        <div>
-       <ul className="flex space-x-4 text-black text-sm ">
+       {/* <ul className="flex space-x-4 text-black text-sm ">
         <li><Link to="/cars" className='hover:text-green-600'>Cars</Link></li>
         <li><Link to="/motorbikes"  className='hover:text-green-600' >Motorbikes</Link></li>
         <li><Link to="/phones"  className='hover:text-green-600' >Mobile Phones</Link></li>
@@ -27,7 +27,7 @@ const OptionItem = () => {
         <li><Link to="/scooters"  className='hover:text-green-600'>Scooters</Link></li>
         <li><Link to="/commercial-vehicles"  className='hover:text-green-600'>Commercial & Other Vehicles</Link></li>
         <li><Link to="/rental-houses"  className='hover:text-green-600'>For Rent: Houses & Apartments</Link></li>
-      </ul>
+      </ul> */}
        </div>
 
 <div>
